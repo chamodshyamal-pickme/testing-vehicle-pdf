@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details — PickMe Registration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Arial:wght@400;700&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #000000;
+            background: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 40px 50px;
+        }
+
+        /* ── Header ── */
+        .doc-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #000000;
+        }
+        .brand-logo {
+            width: 130px;
+            height: auto;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .brand-sub {
+            font-size: 11px;
+            color: #000000;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        /* ── Page title ── */
+        .doc-title {
+            text-align: center;
+            margin: 18px 0 20px;
+        }
+        .doc-title h2 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000;
+            text-decoration: underline;
+            letter-spacing: 0.03em;
+        }
+        .doc-title p {
+            font-size: 12px;
+            color: #000000;
+            margin-top: 4px;
+        }
+
+        /* ── Section heading ── */
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #000000;
+            text-decoration: underline;
+            margin: 22px 0 12px;
+        }
+
+        /* ── Row ── */
+        .form-row {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 10px;
+            gap: 0;
+        }
+        .form-label {
+            font-size: 12.5px;
+            color: #000000;
+            font-weight: normal;
+            flex-shrink: 0;
+            line-height: 1.6;
+        }
+        .form-label em {
+            font-style: normal;
+            font-size: 11.5px;
+            color: #000000;
+        }
+        .form-separator {
+            font-size: 12.5px;
+            color: #000000;
+            margin: 0 6px;
+            flex-shrink: 0;
+        }
+        .form-value {
+            font-size: 12.5px;
+            color: #000000;
+            font-weight: normal;
+            border-bottom: 1px solid #000000;
+            flex: 1;
+            min-width: 120px;
+            padding-bottom: 1px;
+            line-height: 1.6;
+        }
+        .form-value.no-line {
+            border-bottom: none;
+            font-weight: bold;
+        }
+
+        /* ── Checkbox row ── */
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .checkbox-row .form-label {
+            width: 100%;
+            flex: none;
+            margin-bottom: 2px;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            color: #000000;
+        }
+        .check-item input[type="checkbox"] {
+            width: 14px;
+            height: 14px;
+            accent-color: #000000;
+            flex-shrink: 0;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            border: none;
+            border-top: 1px solid #000000;
+            margin: 20px 0;
+        }
+
+        /* ── Declaration ── */
+        .declaration {
+            font-size: 12px;
+            color: #000000;
+            line-height: 1.8;
+            text-align: justify;
+            margin: 20px 0;
+        }
+
+        /* ── Signature block ── */
+        .sig-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+            gap: 40px;
+        }
+        .sig-cell {
+            flex: 1;
+            text-align: center;
+        }
+        .sig-cell.empty { flex: 0.5; }
+        .sig-prefill {
+            font-size: 12px;
+            color: #000000;
+            margin-bottom: 4px;
+            min-height: 20px;
+        }
+        .sig-line {
+            border-bottom: 1px solid #000000;
+            margin-bottom: 6px;
+        }
+        .sig-label {
+            font-size: 11.5px;
+            color: #000000;
+        }
+
+        /* ── Print ── */
+        @media print {
+            body { background: #ffffff; }
+            .page-wrap { margin: 0; padding: 30px 40px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- Header -->
+    <div class="doc-header">
+        <img
+            class="brand-logo"
+            src="https://cdn.pickme.lk/public/logo-images/be753e15-90e5-4c50-98c4-d6d7206997fb.png"
+            alt="PickMe"
+        >
+        <div class="brand-sub">
+            Digital Mobility Solutions Lanka (Pvt) Ltd<br>
+            309, High Level Road, Colombo-5, Sri Lanka &nbsp;|&nbsp; info@pickme.lk &nbsp;|&nbsp; www.pickme.lk
+        </div>
+    </div>
+
+    <!-- Section: Vehicle Details -->
+    <div class="section-title">Vehicle Details &mdash; වාහනයේ තොරතුරු</div>
+
+    <div class="form-row">
+        <span class="form-label">Vehicle Registration Number / වාහන ලියාපදිංචි අංකය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.TaxiNumber}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Registration Year / ලියාපදිංචි කල වර්ෂය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.RegistrationYear}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Vehicle Color / වාහනයේ වර්ණය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.VehicleColor}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Vehicle Make, Model / වාහනයේ වර්ගය සහ මාදිලිය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.MakeName}} {{.ModelName}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Engine Capacity / එන්ජිමේ ධාරිතාවය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.EngineCapacity}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Average Speed / සාමාන්‍ය වේගය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.TaxiSpeed}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Seating Capacity / ආසන ප්‍රමාණය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.TaxiCapacity}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Baggage Limit / ගමන් මලු ප්‍රමාණය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.MaxLuggage}}</span>
+    </div>
+
+    <!-- Luggage size checkboxes -->
+    <div class="form-row" style="align-items:center; gap: 28px; flex-wrap:wrap;">
+        <span class="form-label" style="flex-shrink:0;">Luggage Size / ගමන් මලු වර්ගය :</span>
+        <label class="check-item">
+            <input type="checkbox" name="luggage_size" value="big">
+            Big / ලොකු
+        </label>
+        <label class="check-item">
+            <input type="checkbox" name="luggage_size" value="medium">
+            Medium / මධ්‍යම
+        </label>
+        <label class="check-item">
+            <input type="checkbox" name="luggage_size" value="small">
+            Small / කුඩා
+        </label>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Vehicle Insurance Category (Private / Hiring) / රක්ෂණ වර්ගය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.InsuaranceCategory}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Vehicle Insurance Expiry Date / රක්ෂණය අවසන් වන දිනය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.InsuaranceExpDate}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Date of Last Emission Test / අවසන් වරට දුම් පරික්ෂාව සිදුකල දිනය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.LastEmissionTest}}</span>
+    </div>
+
+    <div class="form-row">
+        <span class="form-label">Vehicle Reporting Location / වාහනය වාර්තා කරන ස්ථානය</span>
+        <span class="form-separator">:</span>
+        <span class="form-value">{{.ReportingLocation}}</span>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Declaration -->
+    <div class="declaration">
+        I Confirm That The Details Given Above Regarding Myself, Vehicle Owner's, Non Related Referees Are True And Accurate To The Best Of My Knowledge.
+        <br>
+        ඉහත සඳහන් කල මාගේ තොරතුරු , වාහනයේ තොරතුරු , වාහන අයිතිකරුගේ තොරතුරු , ඥාතීන් නොවන අයගේ තොරතුරු යන සියල්ලක්ම සත්‍ය සහ නිවැරදි තොරතුරු බව ප්‍රකාශ කරමි.
+    </div>
+
+    <!-- Signature row -->
+    <div class="sig-row">
+        <div class="sig-cell">
+            <div class="sig-prefill">{{.TodayDate}}</div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Date / දිනය</div>
+        </div>
+        <div class="sig-cell empty"></div>
+        <div class="sig-cell">
+            <div class="sig-prefill">&nbsp;</div>
+            <div class="sig-line"></div>
+            <div class="sig-label">Signature / අත්සන</div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
